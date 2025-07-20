@@ -99,7 +99,7 @@
     async function getWeather(){
       const loc=document.getElementById('locationInput').value.trim();
       if(!loc) return alert('Enter a location first.');
-      const url=`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${loc}&days=3&aqi=yes`;
+      const url=`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${loc}&days=10&aqi=yes`;
       try{
         const res=await fetch(url);
         const data=await res.json();
@@ -123,7 +123,7 @@
         💨 Wind: ${current.wind_kph} kph (${current.wind_dir})<br>
         🌥️ ${current.condition.text}
         <img src="https:${current.condition.icon}" alt=""><br>`;
-      forecastResult.innerHTML='<h3>⏱️ 3‑Day Forecast</h3>';
+      forecastResult.innerHTML='<h3>⏱️ 10‑Day Forecast</h3>';
       forecast.forecastday.forEach((d,i)=>{
         const delay=i*0.15;
         forecastResult.innerHTML+=`
